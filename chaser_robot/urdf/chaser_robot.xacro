@@ -3,6 +3,7 @@
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find chaser_robot)/urdf/chaser_robot.gazebo" />
   <xacro:include filename="$(find chaser_robot)/urdf/materials.xacro" />
+  <xacro:include filename="$(find chaser_robot)/urdf/imu.gazebo" />
   <link name="robot_footprint"></link>
 
   <joint name="robot_footprint_joint" type="fixed">
@@ -192,6 +193,38 @@
     <child link="hokuyo"/>
     <axis xyz="0.0 1 0.0"/>
   </joint>
+
+  <link name="imu_sensor">
+      <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <mass value="0.1"/>
+        <inertia ixx="1e-6" ixy="0.0" ixz="0.0" iyy="1e-6" iyz="0.0" izz="1e-6"/>
+      </inertial>
+      <visual name="imu_sensor_visual">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+          <box size="0.05 0.05 0.05"/>
+        </geometry>
+        
+      </visual>
+      <collision>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <geometry>
+          <box size="0.05 0.05 0.05"/>
+        </geometry>
+      </collision>
+      <gazebo reference="imu_sensor">
+          <material>Gazebo/Green</material>
+      </gazebo>
+  </link>
+
+  <joint name="imu_sensor_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
+    <parent link="chassis"/>
+    <child link="imu_sensor"/>
+    <axis xyz="0.0 1 0.0"/>
+  </joint>
+
 
 
 </robot>
