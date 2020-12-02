@@ -1,8 +1,0 @@
-prefix=/home/kronton/localbot_ws/devel
-
-Name: chaser_robot
-Description: Description of chaser_robot
-Version: 0.0.1
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

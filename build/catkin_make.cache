@@ -1,2 +1,0 @@
-ball_chaser:chaser_robot:odom_to_trajectory:pgm_map_creator:robot_pose_ekf
--DCATKIN_DEVEL_PREFIX=/home/kronton/localbot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kronton/localbot_ws/install -G Unix Makefiles
